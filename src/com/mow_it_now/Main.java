@@ -10,6 +10,10 @@ public class Main {
 	public static final Logger LOGGER=Logger.getLogger(Main.class.getName());
 	
 	public static void main(String[] args) {
+		if(args.length==0){
+			LOGGER.log(Level.SEVERE,"Vous devez spécifier un fichier.");
+		return;
+		}
 		File file=new File(args[0]);
 		Loader loader;
 		try {
