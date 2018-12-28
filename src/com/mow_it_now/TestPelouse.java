@@ -23,9 +23,10 @@ public class TestPelouse {
 
   private static final Logger LOGGER = Logger.getLogger(TestPelouse.class
       .getName());
+  public static final String fileName=System.getProperty("user.dir"+File.pathSeparator+"tondeuse.txt");
 
   public static void main(String[] args) {
-    if ((args==null)||(args.length == 0)) {
+    /*if ((args==null)||(args.length == 0)) {
       LOGGER.log(Level.SEVERE, "Vous devez spécifier un fichier.");
       return;
     }
@@ -34,7 +35,7 @@ public class TestPelouse {
       path=FileSystems.getDefault().getPath(args[0]);
     }catch(InvalidPathException e){
       LOGGER.log(Level.SEVERE, "Le chemin {0} est invalide.", args[0]);
-      return;
+      throw e;
     }
     
     File file = new File(path.toString());
@@ -45,7 +46,8 @@ public class TestPelouse {
     if (!file.canRead()) {
       LOGGER.log(Level.SEVERE, "Vous n''avez pas le droit de lire le fichier {0}", args[0]);
       return;
-    }
+    }*/
+    File file=new File(fileName);
     Loader loader;
     try {
       loader = new Loader(file);
