@@ -1,15 +1,14 @@
 package com.mow_it_now;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.InvalidPathException;
-import java.nio.file.Path;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import com.mow_it_now.controlers.Loader;
+import com.mow_it_now.controlers.Monitor;
+import com.mow_it_now.controlers.PelouseFactory;
 import com.mow_it_now.models.Tondeuse;
 
 /**
@@ -23,36 +22,23 @@ public class TestPelouse {
 
   private static final Logger LOGGER = Logger.getLogger(TestPelouse.class
       .getName());
-  public static final String FILE_NAME=System.getProperty("user.dir"+File.pathSeparator+"tondeuse.txt");
+  public static final String CONFIG_FILE = "./resources/config.properties";
+  public static final String CURRENT_DIRECTORY = System.getProperty("user.dir");
 
   public static void main(String[] args) {
-    /*if ((args==null)||(args.length == 0)) {
-      LOGGER.log(Level.SEVERE, "Vous devez spécifier un fichier.");
-      return;
-    }
-    Path path;
-    try{
-      path=FileSystems.getDefault().getPath(args[0]);
-    }catch(InvalidPathException e){
-      LOGGER.log(Level.SEVERE, "Le chemin {0} est invalide.", args[0]);
-      throw e;
-    }
+
+    Properties properties = new Properties();
     
-    File file = new File(path.toString());
-    if (!file.exists()) {
-      LOGGER.log(Level.SEVERE, "Le fichier {0} est introuvable.", args[0]);
-      return;
-    }
-    if (!file.canRead()) {
-      LOGGER.log(Level.SEVERE, "Vous n''avez pas le droit de lire le fichier {0}", args[0]);
-      return;
-    }*/
-    File file=new File(FILE_NAME);
-    Loader loader;
+    PelouseFactory pelouseFactory;
     try {
-      loader = new Loader(file);
-      loader.deplacer();
-      for (Tondeuse tondeuse : loader.getPelouse().getTondeuses()) {
+      properties.load(new FileInputStream(CONFIG_FILE));
+      String fileName = properties.getProperty("file_name");
+      String path = CURRENT_DIRECTORY + File.separatorChar + fileName;
+      InputStream file = new FileInputStream(path);
+      pelouseFactory = new PelouseFactory(file);
+      Monitor monitor = new Monitor(pelouseFactory.createPelouse());
+      monitor.deplacer();
+      for (Tondeuse tondeuse : monitor.getPelouse().getTondeuses()) {
 	if (LOGGER.isLoggable(Level.INFO)) {
 	  LOGGER.info(tondeuse.toString());
 	}

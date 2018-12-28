@@ -19,6 +19,13 @@ public class Monitor {
     this.pelouse = pelouse;
   }
 
+  public void deplacer() {
+    for (Tondeuse tondeuse : this.pelouse.getTondeuses()) {
+      for (Mouvement d : tondeuse.getMouvements()) {
+	this.deplacer(tondeuse, d);
+      }
+    }
+  }
   /**
    * 
    * @param tondeuse
@@ -132,6 +139,14 @@ public class Monitor {
       default:
 	break;
     }
+  }
+
+  public Pelouse getPelouse() {
+    return pelouse;
+  }
+
+  public void setPelouse(Pelouse pelouse) {
+    this.pelouse = pelouse;
   }
 
 }
