@@ -31,7 +31,7 @@ public class TestPelouse {
     
     PelouseFactory pelouseFactory;
     try {
-      properties.load(new FileInputStream(CONFIG_FILE));
+      properties.load(TestPelouse.class.getResourceAsStream(CONFIG_FILE));
       String fileName = properties.getProperty("file_name");
       String path = CURRENT_DIRECTORY + File.separatorChar + fileName;
       InputStream file = new FileInputStream(path);
