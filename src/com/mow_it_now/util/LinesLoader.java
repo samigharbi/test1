@@ -17,20 +17,21 @@ import java.util.List;
 public class LinesLoader {
   private InputStream inputStream;
 
-  
   public LinesLoader(InputStream inputStream) {
     super();
     this.inputStream = inputStream;
   }
 
-/**
- * get lines from inputstream
- * @return List of lines (strings)
- * @throws IOException
- */
+  /**
+   * get lines from inputstream
+   * 
+   * @return List of lines (strings)
+   * @throws IOException
+   */
   public List<String> getLines() throws IOException {
     List<String> lines = new ArrayList<>();
-    try (BufferedReader b = new BufferedReader(new InputStreamReader(inputStream,Charset.defaultCharset()))) {
+    try (BufferedReader b = new BufferedReader(new InputStreamReader(
+	inputStream, Charset.defaultCharset()))) {
       String line;
       while ((line = b.readLine()) != null) {
 	lines.add(line);

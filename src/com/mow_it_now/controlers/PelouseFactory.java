@@ -10,7 +10,7 @@ import com.mow_it_now.models.Pelouse;
 import com.mow_it_now.util.LinesLoader;
 import com.mow_it_now.util.LinesUtil;
 
-public class PelouseFactory implements Loader {  
+public class PelouseFactory implements Loader {
 
   private InputStream inputStream;
 
@@ -18,7 +18,6 @@ public class PelouseFactory implements Loader {
     super();
     this.inputStream = inputStream;
   }
-
 
   public Pelouse createPelouse() throws IOException {
     LinesLoader loader = new LinesLoader(inputStream);
@@ -34,5 +33,4 @@ public class PelouseFactory implements Loader {
     return pelouse;
   }
 
-  
 }

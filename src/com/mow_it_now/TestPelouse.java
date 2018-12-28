@@ -21,16 +21,18 @@ public class TestPelouse {
 
   private static final Logger LOGGER = Logger.getLogger(TestPelouse.class
       .getName());
-  public static final String CONFIG_FILE = "/resources/config.properties";
+  public static final String RESOURCES_FOLDER = "/resources/";
+  public static final String CONFIG_FILE = RESOURCES_FOLDER
+      + "config.properties";
 
   public static void main(String[] args) {
 
     Properties properties = new Properties();
-    
+
     PelouseFactory pelouseFactory;
-    try {      
+    try {
       properties.load(TestPelouse.class.getResourceAsStream(CONFIG_FILE));
-      String fileName = "/resources/"+properties.getProperty("file_name");
+      String fileName = RESOURCES_FOLDER + properties.getProperty("file_name");
       InputStream file = TestPelouse.class.getResourceAsStream(fileName);
       pelouseFactory = new PelouseFactory(file);
       Monitor monitor = new Monitor(pelouseFactory.createPelouse());
