@@ -23,7 +23,7 @@ public class TestPelouse {
 
   private static final Logger LOGGER = Logger.getLogger(TestPelouse.class
       .getName());
-  public static final String fileName=System.getProperty("user.dir"+File.pathSeparator+"tondeuse.txt");
+  public static final String FILE_NAME=System.getProperty("user.dir"+File.pathSeparator+"tondeuse.txt");
 
   public static void main(String[] args) {
     /*if ((args==null)||(args.length == 0)) {
@@ -47,7 +47,7 @@ public class TestPelouse {
       LOGGER.log(Level.SEVERE, "Vous n''avez pas le droit de lire le fichier {0}", args[0]);
       return;
     }*/
-    File file=new File(fileName);
+    File file=new File(FILE_NAME);
     Loader loader;
     try {
       loader = new Loader(file);
