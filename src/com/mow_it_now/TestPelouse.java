@@ -8,6 +8,13 @@ import java.util.logging.Logger;
 import com.mow_it_now.controlers.Loader;
 import com.mow_it_now.models.Tondeuse;
 
+/**
+ * 
+ * @author sami gharbi (sami.gharbi@gmail.com)
+ * 
+ *         classe qui gère une pelouse
+ * 
+ */
 public class TestPelouse {
 
   private static final Logger LOGGER = Logger.getLogger(TestPelouse.class

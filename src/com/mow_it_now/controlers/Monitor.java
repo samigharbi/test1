@@ -6,7 +6,7 @@ import com.mow_it_now.util.Mouvement;
 import com.mow_it_now.util.Orientation;
 
 /**
- * Perform movements
+ * classe qui gère les déplacements
  * 
  * @author sami
  * 
@@ -19,6 +19,13 @@ public class Monitor {
     this.pelouse = pelouse;
   }
 
+  /**
+   * 
+   * @param tondeuse
+   *          la tondeuse à déplacer
+   * @param mouvement
+   *          le mouvement à effectuer(avant, droite, gauche)
+   */
   public void deplacer(Tondeuse tondeuse, Mouvement mouvement) {
     switch (mouvement.getMouvement()) {
       case "A":
@@ -36,6 +43,12 @@ public class Monitor {
     }
   }
 
+  /**
+   * tourner la tondeuse à gauche
+   * 
+   * @param tondeuse
+   *          la tondeuse à tourner vers la gauche
+   */
   private static void tournerGauche(Tondeuse tondeuse) {
     Orientation orientation = tondeuse.getOrientation();
     switch (orientation.getOrientation()) {
@@ -57,6 +70,12 @@ public class Monitor {
     }
   }
 
+  /**
+   * avancer la tondeuse
+   * 
+   * @param tondeuse
+   *          la tondeuse à faire avancer.
+   */
   private void avancer(Tondeuse tondeuse) {
     Orientation orientation = tondeuse.getOrientation();
     switch (orientation.getOrientation()) {
@@ -87,7 +106,13 @@ public class Monitor {
     }
   }
 
-  private void tournerDroite(Tondeuse tondeuse) {
+  /**
+   * tourner la tondeuse à droite
+   * 
+   * @param tondeuse
+   *          la tondeuse à tourner à droite
+   */
+  private static void tournerDroite(Tondeuse tondeuse) {
     Orientation orientation = tondeuse.getOrientation();
     switch (orientation.getOrientation()) {
       case "N":

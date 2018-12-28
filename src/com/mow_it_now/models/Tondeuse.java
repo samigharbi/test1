@@ -1,11 +1,19 @@
 package com.mow_it_now.models;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.mow_it_now.util.Mouvement;
 import com.mow_it_now.util.Orientation;
 
+/**
+ * 
+ * @author sami gharbi (sami.gharbi@gmail.com)
+ * 
+ *         classse qui représente une tondeuse
+ * 
+ */
 public class Tondeuse {
 
   private Point position;
@@ -17,7 +25,7 @@ public class Tondeuse {
     super();
     this.position = position;
     this.orientation = orientation;
-    this.mouvements = mouvements;
+    this.mouvements = new ArrayList<>(mouvements);
   }
 
   public Point getPosition() {
@@ -37,11 +45,11 @@ public class Tondeuse {
   }
 
   public List<Mouvement> getMouvements() {
-    return mouvements;
+    return new ArrayList<>(mouvements);
   }
 
   public void setMouvements(List<Mouvement> mouvements) {
-    this.mouvements = mouvements;
+    this.mouvements = new ArrayList<>(mouvements);
   }
 
   @Override

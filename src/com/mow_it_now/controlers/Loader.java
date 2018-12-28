@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.mow_it_now.models.Pelouse;
 import com.mow_it_now.models.Tondeuse;
-import com.mow_it_now.util.FileParser;
+import com.mow_it_now.util.FileReader;
 import com.mow_it_now.util.Mouvement;
 import com.mow_it_now.util.Orientation;
 
@@ -27,7 +27,7 @@ public class Loader {
   public Loader(File file) throws IOException {
     super();
     this.file = file;
-    FileParser fileParser = new FileParser(file);
+    FileReader fileParser = new FileReader(file);
     lines = fileParser.getLines();
     iterator = lines.iterator();
     Point p = getLimit(iterator.next());

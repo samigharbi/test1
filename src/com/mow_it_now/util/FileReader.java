@@ -13,10 +13,10 @@ import java.util.List;
  * @author sami
  * 
  */
-public class FileParser {
+public class FileReader {
   private File file;
 
-  public FileParser(File file) {
+  public FileReader(File file) {
     super();
     this.file = file;
   }

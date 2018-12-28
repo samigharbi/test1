@@ -4,6 +4,12 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author sami gharbi (sami.gharbi@gmail.com)
+ * 
+ *         classe qui représente une pelouse
+ */
 public class Pelouse {
   private Point limit;
 
