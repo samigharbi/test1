@@ -2,6 +2,10 @@ package com.mow_it_now;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,8 +29,15 @@ public class TestPelouse {
       LOGGER.log(Level.SEVERE, "Vous devez spécifier un fichier.");
       return;
     }
+    Path path;
+    try{
+      path=FileSystems.getDefault().getPath(args[0]);
+    }catch(InvalidPathException e){
+      LOGGER.log(Level.SEVERE, "Le chemin {0} est invalide.", args[0]);
+      return;
+    }
     
-    File file = new File(args[0]);
+    File file = new File(path.toString());
     if (!file.exists()) {
       LOGGER.log(Level.SEVERE, "Le fichier {0} est introuvable.", args[0]);
       return;
