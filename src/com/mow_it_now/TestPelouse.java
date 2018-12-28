@@ -21,19 +21,17 @@ public class TestPelouse {
 
   private static final Logger LOGGER = Logger.getLogger(TestPelouse.class
       .getName());
-  public static final String CONFIG_FILE = "./resources/config.properties";
-  public static final String CURRENT_DIRECTORY = System.getProperty("user.dir");
+  public static final String CONFIG_FILE = "/resources/config.properties";
 
   public static void main(String[] args) {
 
     Properties properties = new Properties();
     
     PelouseFactory pelouseFactory;
-    try {
+    try {      
       properties.load(TestPelouse.class.getResourceAsStream(CONFIG_FILE));
-      String fileName = properties.getProperty("file_name");
-      String path = CURRENT_DIRECTORY + File.separatorChar + fileName;
-      InputStream file = TestPelouse.class.getResourceAsStream(path);
+      String fileName = "/resources/"+properties.getProperty("file_name");
+      InputStream file = TestPelouse.class.getResourceAsStream(fileName);
       pelouseFactory = new PelouseFactory(file);
       Monitor monitor = new Monitor(pelouseFactory.createPelouse());
       monitor.deplacer();
