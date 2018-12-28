@@ -21,13 +21,18 @@ public class TestPelouse {
       .getName());
 
   public static void main(String[] args) {
-    if (args.length == 0) {
+    if ((args==null)||(args.length == 0)) {
       LOGGER.log(Level.SEVERE, "Vous devez spécifier un fichier.");
       return;
     }
+    
     File file = new File(args[0]);
     if (!file.exists()) {
       LOGGER.log(Level.SEVERE, "Le fichier {0} est introuvable.", args[0]);
+      return;
+    }
+    if (!file.canRead()) {
+      LOGGER.log(Level.SEVERE, "Vous n''avez pas le droit de lire le fichier {0}", args[0]);
       return;
     }
     Loader loader;
