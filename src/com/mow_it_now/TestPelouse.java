@@ -26,24 +26,6 @@ public class TestPelouse {
 
   public static void main(String[] args) {
 
-    Properties properties = new Properties();
-
-    PelouseFactory pelouseFactory;
-    try {
-      properties.load(TestPelouse.class.getResourceAsStream(CONFIG_FILE));
-      String fileName = RESOURCES_FOLDER + properties.getProperty("file_name");
-      InputStream file = TestPelouse.class.getResourceAsStream(fileName);
-      pelouseFactory = new PelouseFactory(file);
-      Monitor monitor = new Monitor(pelouseFactory.createPelouse());
-      monitor.deplacer();
-      for (Tondeuse tondeuse : monitor.getPelouse().getTondeuses()) {
-	if (LOGGER.isLoggable(Level.INFO)) {
-	  LOGGER.info(tondeuse.toString());
-	}
-      }
-    } catch (IOException e) {
-      LOGGER.log(Level.SEVERE, "erreur d'entrée sortie.", e);
-    }
-
+   System.out.println("salut");
   }
 }
