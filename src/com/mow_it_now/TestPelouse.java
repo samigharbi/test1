@@ -1,13 +1,6 @@
 package com.mow_it_now;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import com.mow_it_now.controlers.Monitor;
-import com.mow_it_now.controlers.PelouseFactory;
-import com.mow_it_now.models.Tondeuse;
+
 
 /**
  * 
